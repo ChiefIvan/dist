@@ -7,9 +7,7 @@ from flask_jwt_extended import JWTManager
 # from sqlalchemy import inspect
 from secrets import token_hex
 from datetime import timedelta
-from dotenv import load_dotenv
-from os import getenv, path
-from os.path import join, dirname
+from os import path
 # from gevent.pywsgi import WSGIServer
 
 from .static.predef_function.server_credentials import EMAIL, PASSWORD
@@ -19,14 +17,12 @@ server: Flask = Flask(__name__)
 db: SQLAlchemy = SQLAlchemy()
 mail: Mail = Mail()
 jwt: JWTManager = JWTManager()
-dotenv_path = join(dirname(__file__), "static", ".env")
-load_dotenv(dotenv_path)
 
 
 CORS(
     server,
     resources={
-        r"/*": {"origins": getenv("CORS_ADDRESS")}
+        r"/*": {"origins": "https://celebrated-monstera-7259ce.netlify.app/"}
     }
 )
 
@@ -46,7 +42,7 @@ class Flaskserver:
         # self.server.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URI")
         self.server.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{self.DB_NAME}"
         self.server.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-        self.server.config["MAIL_SERVER"] = getenv("MAIL_SERVER")
+        self.server.config["MAIL_SERVER"] = "smtp-mail.outlook.com"
         self.server.config["MAIL_PORT"] = 587
         self.server.config["MAIL_USE_TLS"] = True
         self.server.config["MAIL_USE_SSL"] = False
