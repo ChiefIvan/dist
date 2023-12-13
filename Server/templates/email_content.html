@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email Confirmation</title>
+  </head>
+  <body>
+    <h2>Welcome, {{ data[1] }}!</h2>
+    <p>
+      Thank you for using DOCUTRACKER!. Please click the button below to confirm
+      your email address:
+    </p>
+    <p>
+      <a href="{{ data[0] }}">
+        <button
+          style="
+            width: 8rem;
+            height: 2.5rem;
+            border: none;
+            color: white;
+            background-color: orange;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+          "
+        >
+          Verify
+        </button>
+      </a>
+    </p>
+    <p>Thanks!</p>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+@import url("style.css");
+
+div.message {
+  width: 100vw;
+  height: calc(var(--size2) * 0.5);
+  background-color: var(--color3);
+  color: var(--color4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: ease-in-out var(--dur);
+  animation: message var(--dur) forwards;
+}
+
+@keyframes message {
+  from {
+    opacity: 0;
+    top: -60px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}

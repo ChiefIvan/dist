@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ content["title"] }}</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='/assets/transparent-favicons-simple.png') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <main>
+      <img
+        src="{{ url_for('static', filename='assets/happy_banner.png') }}"
+        alt="confimation template banner"
+      />
+      <section>
+        <h1>DOCUTRACKER says:</h1>
+        <h3 style="color: {{content["color"]}}">{{ content["content"] }}</h3>
+      </section>
+    </main>
+  </body>
+</html>

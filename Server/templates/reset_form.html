@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOCUTRACKER | Reset Password</title>
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='assets/transparent-favicons-simple.png') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body id="container">
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {%for category, message in messages %} {%if category ==
+    "error"%}
+    <div id="message" class="message">
+      <span>{{ message["error"] }}</span>
+    </div>
+    {%endif%} {% endfor %} {% endif %} {% endwith %}
+    <main>
+      <form method="POST" autocomplete="off">
+        <img
+          src="{{ url_for('static', filename='assets/transparent-favicon-elegant.png') }}"
+          alt="Forgot Password Banner"
+        />
+
+        <h1>New Password</h1>
+
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+
+        <input
+          type="password"
+          name="cnfrm-password"
+          id="cnfrm-password"
+          placeholder="Confirm Password"
+          required
+        />
+
+        <div>
+          <button type="submit">Change</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
