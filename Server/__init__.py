@@ -22,7 +22,7 @@ jwt: JWTManager = JWTManager()
 CORS(
     server,
     resources={
-        r"/*": {"origins": "http://localhost:5173"}
+        r"/*": {"origins": "https://celebrated-monstera-7259ce.netlify.app"}
     }
 )
 
