@@ -1,13 +1,13 @@
 from Server import Flaskserver
 
-app: Flaskserver = Flaskserver()
+server: Flaskserver = Flaskserver()
+app = server.server_run()
+
+# def create_app():
+#     return app.server_run()
 
 
-def create_app():
-    return app.server_run()
-
-
-if __name__ == "__main__":
-    server = create_app()
-    server.run(debug=True)
-    # server.serve_forever()
+# if __name__ == "__main__":
+#     server = create_app()
+#     server.run(debug=True)
+#     # server.serve_forever()
