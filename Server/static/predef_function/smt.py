@@ -37,25 +37,25 @@ class Smt:
 
     def send(self) -> None | dict:
 
-        # try:
-        confirm_url = self.authentication()
+        try:
+            confirm_url = self.authentication()
+    
+            resend_token = self.resend(
+                token=confirm_url.split("verification/")[1])
+    
+            self.db.session.add(resend_token)
+            self.db.session.commit()
+    
+            template = render_template(
+                "email_content.html", data=[confirm_url, self.username])
+    
+            msg: Message = Message(
+                recipients=[self.data], subject="Verify your Email", html=template)
+    
+            self.mail.send(msg)
 
-        resend_token = self.resend(
-            token=confirm_url.split("verification/")[1])
-
-        self.db.session.add(resend_token)
-        self.db.session.commit()
-
-        template = render_template(
-            "email_content.html", data=[confirm_url, self.username])
-
-        msg: Message = Message(
-            recipients=[self.data], subject="Verify your Email", html=template)
-
-        self.mail.send(msg)
-
-        # except Exception:
-        #     return {"error": self.send_error}
+        except Exception:
+            return {"error": self.send_error}
 
     def request(self) -> None | dict:
         try:
