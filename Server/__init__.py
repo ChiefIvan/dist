@@ -18,9 +18,6 @@ db: SQLAlchemy = SQLAlchemy()
 mail: Mail = Mail()
 jwt: JWTManager = JWTManager()
 
-print(EMAIL, PASSWORD)
-
-
 CORS(
     server,
     resources={
