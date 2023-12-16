@@ -36,6 +36,8 @@ class Smt:
         return confirm_url
 
     def send(self) -> None | dict:
+
+        print(self.username)
         # try:
         confirm_url = self.authentication()
 
